@@ -1,0 +1,36 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+    <http pattern="/login" security="none"/>
+    <http pattern="/forgetpassword" security="none"/>
+    <http pattern="/sendforgetdata" security="none"/>
+    <http pattern="/loginfailed" security="none"/>
+    <http pattern="/style/**" security="none"/>
+    <http pattern="/css/**" security="none"/>
+    <http pattern="/img/**" security="none"/>
+    <http pattern="/js/**" security="none"/>
+    <http pattern="/lib/**" security="none"/>
+    <http pattern="/fonts/**" security="none"/>
+	<http use-expressions="true">
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<form-login login-page="/login" default-target-url="/home" always-use-default-target="true" authentication-failure-url="/loginfailed"/>
+		<logout logout-url="/logout" logout-success-url="/login" />
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder ref="passwordEncoder"/>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT username,password, enabled FROM `user` WHERE USERNAME = ?"
+				authorities-by-username-query="SELECT u.username, r.name FROM `user` u, `role` r, `user_role` ur WHERE u.USERNAME = ? and u.ID = ur.USER_ID and ur.ROLE_ID = r.ID" />
+		</authentication-provider>
+	</authentication-manager>
+  
+  <beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
+  	<beans:constructor-arg value="MD5" />
+  </beans:bean>
+</beans:beans>

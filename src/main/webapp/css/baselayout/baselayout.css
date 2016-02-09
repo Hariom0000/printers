@@ -1,0 +1,16 @@
+html {font-size: 100%;margin: 0;padding: 0;}
+body {color: #404040;font: 12px/1.55 "Open Sans",sans-serif;text-align: center;margin: 0px;padding: 0;height: auto;}
+ul, ol {
+    padding-left: 0px !important;
+}
+ul li {list-style-type: none !important;}
+li {line-height: 20px;}
+.footer-social .facebook a, .footer-social .twitter a, .footer-social .linkedin a, .footer-social .youtube a, .footer-social .gplus a, .footer-social .pinterest a 
+{background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 25px;}
+.footer-social .facebook a
+{background-image: url("http://skin1.indianbeautifulart.com/skin/frontend/ibacraft/default/images/social/facebook.png");}
+a {color: #333333;}
+img {border: 0 none;vertical-align: top;height: auto;max-width: 100%;}
+.button {background: transparent none repeat scroll 0 0;border: 0 none;cursor: pointer;margin: 0;overflow: visible;padding: 0;width: auto;}
+.button span {text-align: center;text-transform: capitalize;transition: all 0.5s ease 0s;white-space: nowrap;display: block;font: 15px/32px "Open Sans",sans-serif;background: rgba(0, 0, 0, 0) none repeat scroll 0 0;border: 0 none;color: #333333;height: 31px;padding: 0;width: 50px;}
+.clear{height: 10px;}

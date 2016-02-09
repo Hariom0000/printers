@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    
+	<definition name="cardtype"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/cardtype.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="activeyear"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/activeyear.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="weddingcardfrontimg"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/weddingcardfrontimg.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+	<definition name="cast"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/cast.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="weddingcard"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/weddingcard.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="commonLayout" template="/WEB-INF/Base/pages/commonLayout.jsp">
+        <put-attribute name="title" value=""></put-attribute>
+	    <put-attribute name="header" value=""></put-attribute>
+	    <put-attribute name="menu" value=""></put-attribute>
+	    <put-attribute name="body" value=""></put-attribute>
+    </definition>
+	<definition name="baseLayout" template="/WEB-INF/Base/pages/baselayout.jsp">
+	    <put-attribute name="title" value="Welcome TO Tiles"></put-attribute>
+	    <put-attribute name="header" value="/WEB-INF/Base/pages/baseheader.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/basemenu.jsp"></put-attribute>
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/basebody.jsp"></put-attribute>
+	</definition>
+	<definition name="card"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/cardtype.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="login" extends="commonLayout">
+	    <put-attribute name="menu" value="/WEB-INF/Base/login.jsp"></put-attribute>
+	</definition>
+	<definition name="weddingcard" extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/cardType/weddingcard.jsp"></put-attribute>
+	</definition>
+	<definition name="Welcome" template="/WEB-INF/Base/pages/Welcome.jsp">
+	</definition>
+	
+</tiles-definitions>
