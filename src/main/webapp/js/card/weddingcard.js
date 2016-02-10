@@ -41,7 +41,7 @@ $(document).ready(
 							appendSelectData['usercast']=data.usercast;
 						$.each(data.weddingcard,function(key, value) {
 							obj[''+key+'']=value;
-							$("#listview tbody").append("<tr><td>"+ value.cardNumber+ "</td> <td>"+ value.activeYear+ "</td> <td>"+ value.cardType+ "</td> <td>"+ value.weddingCardFrontImage+ "</td> <td>"+ value.userCast+ "</td> <td>"+ value.minOrder+ "</td> <td>"+ value.priceLTHundred+ "</td> <td>"+ value.priceGTHundred+ "</td><td><span class='glyphicon glyphicon-pencil' onclick='editWeddingCard("+ key+ ");'></span></td><td><span class='glyphicon glyphicon-eye-open' onclick='showPleaseWait();'></span></td><td><span class='glyphicon glyphicon-trash' onclick=javascript:deletecast("+ value.id+ ");></span></td></tr>");
+							$("#listview tbody").append("<tr><td>"+ value.cardNumber+ "</td> <td>"+ value.activeYear+ "</td> <td>"+ value.cardType+ "</td> <td>"+ value.weddingCardFrontImage+ "</td> <td>"+ value.userCast+ "</td> <td>"+ value.minOrder+ "</td> <td>"+ value.priceLTHundred+ "</td> <td>"+ value.priceGTHundred+ "</td><td><span class='glyphicon glyphicon-pencil' onclick='editWeddingCard("+ key+ ");'></span></td><td><span class='glyphicon glyphicon-eye-open' onclick='showPleaseWait("+ key+ ");'></span></td><td><span class='glyphicon glyphicon-trash' onclick=javascript:deletecast("+ value.id+ ");></span></td></tr>");
 						});
 						},
 					});
@@ -141,7 +141,7 @@ function repetedCode(data){
 	$("#listview tbody").empty();
 	$.each(data,function(key, value) {
 		obj[''+key+'']=value;
-		$("#listview tbody").append("<tr><td>"+ value.cardNumber+ "</td> <td>"+ value.activeYear+ "</td> <td>"+ value.cardType+ "</td> <td>"+ value.weddingCardFrontImage+ "</td> <td>"+ value.userCast+ "</td> <td>"+ value.minOrder+ "</td> <td>"+ value.priceLTHundred+ "</td> <td>"+ value.priceGTHundred+ "</td><td><span class='glyphicon glyphicon-pencil' onclick='editWeddingCard("+ key+ ");'></span></td><td><span class='glyphicon glyphicon-eye-open' onclick='showPleaseWait();'></span></td><td><span class='glyphicon glyphicon-trash' onclick=javascript:deletecast("+ value.id+ ");></span></td></tr>");
+		$("#listview tbody").append("<tr><td>"+ value.cardNumber+ "</td> <td>"+ value.activeYear+ "</td> <td>"+ value.cardType+ "</td> <td>"+ value.weddingCardFrontImage+ "</td> <td>"+ value.userCast+ "</td> <td>"+ value.minOrder+ "</td> <td>"+ value.priceLTHundred+ "</td> <td>"+ value.priceGTHundred+ "</td><td><span class='glyphicon glyphicon-pencil' onclick='editWeddingCard("+ key+ ");'></span></td><td><span class='glyphicon glyphicon-eye-open' onclick='showPleaseWait("+ key+ ");'></span></td><td><span class='glyphicon glyphicon-trash' onclick=javascript:deletecast("+ value.id+ ");></span></td></tr>");
 	});
 	$("li#litab1").toggleClass("active");
 	$("li#litab2").toggleClass("active");
@@ -149,8 +149,24 @@ function repetedCode(data){
 	$("div#tab2").toggleClass("active");
 	//$('#validate')[0].reset();
 }
-function showPleaseWait(){
+function showPleaseWait(key){
+	var singleObj = obj[key];
+	$.each(singleObj, function(k, v) {
+		if (JSON.stringify(v).indexOf("img") > -1) {
+			$("#model"+k+"").attr("src",
+					"" + domainName + "/" + "HimanshiPrinters/" + v + "");
+			$("#amodel"+k+"").attr("href",
+					"javascript:showHighResolution('" + domainName + "/" + "HimanshiPrinters/" + v + "');");
+		}
+	});
+	$("#showHighResolution").attr("src",
+			"" + domainName + "/" + "HimanshiPrinters/" + singleObj.mainImg + "");
 	  $('#myModal').modal('show');
+}
+
+function showHighResolution(img){
+	$("#showHighResolution").attr("src",
+			""+ img + "");
 }
 function hidePleaseWait(){
 	$('#pleaseWaitDialog').modal('hide');

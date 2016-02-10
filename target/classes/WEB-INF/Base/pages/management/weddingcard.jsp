@@ -16,10 +16,13 @@
 	max-width: 220px;
 }
 
-
 .modal-dialog {
-    margin: 10% auto;
-    width: 60%;
+	margin: 2% auto;
+	width: 60%;
+}
+
+.modal {
+	z-index: 99999;
 }
 </style>
 <div class="tabbable">
@@ -40,7 +43,7 @@
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 
-			<table  class="table table-bordered" id="listview">
+			<table class="table table-bordered" id="listview">
 				<thead>
 					<tr>
 						<th>Card Number</th>
@@ -83,7 +86,8 @@
 						<div class="col-md-6">
 							<fieldset class="form-group">
 								<div class="col-md-4" style="padding-top: 5px;">
-									<label for="formGroupExampleInput"><input type="hidden" name="id" id="id">Card Number</label>
+									<label for="formGroupExampleInput"><input type="hidden"
+										name="id" id="id">Card Number</label>
 								</div>
 								<div class="col-md-8">
 									<input type="text" class="form-control validate[required]"
@@ -175,7 +179,8 @@
 					<div class="col-md-6">
 						<fieldset class="form-group">
 							<div class="col-md-6" style="text-align: center;">
-								<div class="kv-avatar center-block" style="width: 98%;" id="mainImgDiv">
+								<div class="kv-avatar center-block" style="width: 98%;"
+									id="mainImgDiv">
 									<input id="mainImg" name="mainImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -183,7 +188,8 @@
 									class="badge">1</span></a>
 							</div>
 							<div class="col-md-6">
-								<div class="kv-avatar center-block" style="width: 98%;" id="frontImgDiv">
+								<div class="kv-avatar center-block" style="width: 98%;"
+									id="frontImgDiv">
 									<input id="frontImg" name="frontImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -193,7 +199,8 @@
 						</fieldset>
 						<fieldset class="form-group">
 							<div class="col-md-6" style="text-align: center;">
-								<div class="kv-avatar center-block" style="width: 98%;" id="middleImgDiv">
+								<div class="kv-avatar center-block" style="width: 98%;"
+									id="middleImgDiv">
 									<input id="middleImg" name="middleImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -201,7 +208,8 @@
 									class="badge">1</span></a>
 							</div>
 							<div class="col-md-6">
-								<div class="kv-avatar center-block" style="width: 98%;" id="lastImgDiv">
+								<div class="kv-avatar center-block" style="width: 98%;"
+									id="lastImgDiv">
 									<input id="lastImg" name="lastImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -231,7 +239,22 @@
 				<h4 class="modal-title">Modal Header</h4>
 			</div>
 			<div class="modal-body">
-				<div class="row"></div>
+				<div class="row" style="border: none;">
+					<div class="file-preview ">
+						<div class="file-drop-disabled">
+							<div class="file-preview-thumbnails">
+								<div class="file-default-preview">
+									<img alt="Your Avatar" id="showHighResolution" src=""
+										style="width: 90%">
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="file-preview-status text-center text-success"></div>
+							<div class="kv-fileinput-error"></div>
+						</div>
+					</div>
+
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-2"></div>
@@ -243,8 +266,8 @@
 											<div class="file-drop-disabled">
 												<div class="file-preview-thumbnails">
 													<div class="file-default-preview">
-														<img  alt="Your Avatar"
-															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+														<img alt="Your Avatar" id="modelmainImg" src=""
+															style="width: 80%">
 													</div>
 												</div>
 												<div class="clearfix"></div>
@@ -252,8 +275,9 @@
 												<div class="kv-fileinput-error"></div>
 											</div>
 										</div>
-										<a class="btn btn-primary" href="#">Main image <span
-											class="badge">1</span></a>
+										<a class="btn btn-primary" id="amodelmainImg" href="#">Main
+											image <span class="badge">1</span>
+										</a>
 									</div>
 								</div>
 
@@ -265,8 +289,8 @@
 											<div class="file-drop-disabled">
 												<div class="file-preview-thumbnails">
 													<div class="file-default-preview">
-														<img  alt="Your Avatar"
-															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+														<img alt="Your Avatar" id="modelfrontImg" src=""
+															style="width: 80%">
 													</div>
 												</div>
 												<div class="clearfix"></div>
@@ -274,8 +298,9 @@
 												<div class="kv-fileinput-error"></div>
 											</div>
 										</div>
-										<a class="btn btn-primary" href="#">Main image <span
-											class="badge">1</span></a>
+										<a class="btn btn-primary" id="amodelfrontImg" href="#">Front
+											image <span class="badge">1</span>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -286,8 +311,8 @@
 											<div class="file-drop-disabled">
 												<div class="file-preview-thumbnails">
 													<div class="file-default-preview">
-														<img  alt="Your Avatar"
-															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+														<img alt="Your Avatar" id="modelmiddleImg" src=""
+															style="width: 80%">
 													</div>
 												</div>
 												<div class="clearfix"></div>
@@ -295,8 +320,9 @@
 												<div class="kv-fileinput-error"></div>
 											</div>
 										</div>
-										<a class="btn btn-primary" href="#">Main image <span
-											class="badge">1</span></a>
+										<a class="btn btn-primary" id="amodelmiddleImg" href="#">Middle
+											image <span class="badge">1</span>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -307,8 +333,8 @@
 											<div class="file-drop-disabled">
 												<div class="file-preview-thumbnails">
 													<div class="file-default-preview">
-														<img  alt="Your Avatar"
-															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+														<img alt="Your Avatar" id="modellastImg" src=""
+															style="width: 80%">
 													</div>
 												</div>
 												<div class="clearfix"></div>
@@ -316,8 +342,9 @@
 												<div class="kv-fileinput-error"></div>
 											</div>
 										</div>
-										<a class="btn btn-primary" href="#">Main image <span
-											class="badge">1</span></a>
+										<a class="btn btn-primary" id="amodellastImg" href="#">Last
+											image <span class="badge">1</span>
+										</a>
 									</div>
 								</div>
 							</div>
