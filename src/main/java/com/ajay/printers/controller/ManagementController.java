@@ -197,8 +197,10 @@ public class ManagementController {
 	}
 	
 	@RequestMapping(value = "getweddingcards", consumes = "application/json", produces = "application/json", method = RequestMethod.GET)
-	public @ResponseBody List<WeddingCardBean> getWeddingCards() {
-		return weddingCardService.getAllWeddingCard();
+	public @ResponseBody Map<String, Object> getWeddingCards() {
+		Map<String, Object> map=weddingCardService.getWeddingCardBaseData();
+		map.put("weddingcard", weddingCardService.getAllWeddingCard());
+		return map;
 	}
 	
 	@RequestMapping(value = "getweddingcardbasedata", consumes = "application/json", produces = "application/json", method = RequestMethod.POST)
@@ -209,14 +211,15 @@ public class ManagementController {
 	
 	@RequestMapping(value = "cuweddingcard", method = RequestMethod.POST)
 	public @ResponseBody List<WeddingCardBean> createUpdateweddingCard(
-			@RequestParam(value = "cardNumber",required=false) String cardNumber,
-			@RequestParam(value = "activeYearId",required=false) int activeYearId,
-			@RequestParam(value = "cardTypeId",required=false) int cardTypeId,
-			@RequestParam(value = "weddingCardFrontImageId",required=false) int weddingCardFrontImageId,
-			@RequestParam(value = "userCastId",required=false) int userCastId,
-			@RequestParam(value = "minOrder",required=false) int minOrder,
-			@RequestParam(value = "priceLTHundred",required=false) int priceLTHundred,
-			@RequestParam(value = "priceGTHundred",required=false) int priceGTHundred,
+			@RequestParam(value = "activeYearId",required=false) int id,
+			@RequestParam(value = "cardNumber",required=true) String cardNumber,
+			@RequestParam(value = "activeYearId",required=true) int activeYearId,
+			@RequestParam(value = "cardTypeId",required=true) int cardTypeId,
+			@RequestParam(value = "weddingCardFrontImageId",required=true) int weddingCardFrontImageId,
+			@RequestParam(value = "userCastId",required=true) int userCastId,
+			@RequestParam(value = "minOrder",required=true) int minOrder,
+			@RequestParam(value = "priceLTHundred",required=true) int priceLTHundred,
+			@RequestParam(value = "priceGTHundred",required=true) int priceGTHundred,
 			@RequestParam(value = "mainImg",required=false) MultipartFile mainImage,
 			@RequestParam(value = "frontImg",required=false) MultipartFile frontImg,
 			@RequestParam(value = "middleImg",required=false) MultipartFile middleImg,
@@ -231,28 +234,48 @@ public class ManagementController {
 		WeddingCardFrontImage weddingCardFrontImage=new WeddingCardFrontImage();
 		weddingCardFrontImage.setId(weddingCardFrontImageId);
 		String filePath = "img/"+cardType.getType()+"/"+activeYear.getYear()+"/"+cardNumber;
-		String fullPath = context.getRealPath("/img"+filePath);
+		String fullPath = context.getRealPath("/"+filePath);
 		System.out.println(fullPath);
-		
-		WeddingCard  weddingCard=new WeddingCard();
-		weddingCard.setActiveYear(activeYear);
-		weddingCard.setCardNumber(cardNumber);
-		weddingCard.setCardType(cardType);
-		weddingCard.setFrontImg(filePath+ "/"+frontImg.getName()+".jpg");
-		weddingCard.setLastImg(filePath+ "/"+lastImg.getName()+".jpg");
-		weddingCard.setMainImg(filePath+ "/"+mainImage.getName()+".jpg");
-		weddingCard.setMiddleImg(filePath+ "/"+middleImg.getName()+".jpg");
-		weddingCard.setMinOrder(minOrder);
-		weddingCard.setPriceGTHundred(priceGTHundred);
-		weddingCard.setPriceLTHundred(priceLTHundred);
-		weddingCard.setUserCast(userCast);
-		weddingCard.setWeddingCardFrontImage(weddingCardFrontImage);
-		
-		uploadFile(fullPath,frontImg);
-		uploadFile(fullPath,mainImage);
-		uploadFile(fullPath,middleImg);
-		uploadFile(fullPath,lastImg);
-		weddingCardService.create(weddingCard);
+		WeddingCard  weddingCard=null;
+				if(id==0){
+					weddingCard=new WeddingCard();
+					weddingCard.setActiveYear(activeYear);
+					weddingCard.setCardNumber(cardNumber);
+					weddingCard.setCardType(cardType);
+					weddingCard.setFrontImg(filePath+ "/"+frontImg.getName()+".jpg");
+					weddingCard.setLastImg(filePath+ "/"+lastImg.getName()+".jpg");
+					weddingCard.setMainImg(filePath+ "/"+mainImage.getName()+".jpg");
+					weddingCard.setMiddleImg(filePath+ "/"+middleImg.getName()+".jpg");
+					weddingCard.setMinOrder(minOrder);
+					weddingCard.setPriceGTHundred(priceGTHundred);
+					weddingCard.setPriceLTHundred(priceLTHundred);
+					weddingCard.setUserCast(userCast);
+					weddingCard.setWeddingCardFrontImage(weddingCardFrontImage);
+					//weddingCardService.create(weddingCard);
+				}else{
+					weddingCard=weddingCardService.read(id);
+					weddingCard.setActiveYear(activeYear);
+					weddingCard.setCardNumber(cardNumber);
+					weddingCard.setCardType(cardType);
+					weddingCard.setFrontImg(filePath+ "/"+frontImg.getName()+".jpg");
+					weddingCard.setLastImg(filePath+ "/"+lastImg.getName()+".jpg");
+					weddingCard.setMainImg(filePath+ "/"+mainImage.getName()+".jpg");
+					weddingCard.setMiddleImg(filePath+ "/"+middleImg.getName()+".jpg");
+					weddingCard.setMinOrder(minOrder);
+					weddingCard.setPriceGTHundred(priceGTHundred);
+					weddingCard.setPriceLTHundred(priceLTHundred);
+					weddingCard.setUserCast(userCast);
+					weddingCard.setWeddingCardFrontImage(weddingCardFrontImage);
+					//weddingCardService.update(weddingCard);
+				}
+		     if(frontImg!=null)
+				uploadFile(fullPath,frontImg);
+		     if(mainImage!=null)
+				uploadFile(fullPath,mainImage);
+		     if(middleImg!=null)
+				uploadFile(fullPath,middleImg);
+		     if(lastImg!=null)
+				uploadFile(fullPath,lastImg);
 
 		return weddingCardService.getAllWeddingCard();
 	}

@@ -15,6 +15,12 @@
 	display: table-cell;
 	max-width: 220px;
 }
+
+
+.modal-dialog {
+    margin: 10% auto;
+    width: 60%;
+}
 </style>
 <div class="tabbable">
 	<!-- Only required for left/right tabs -->
@@ -46,6 +52,7 @@
 						<th>priceLTHundred</th>
 						<th>priceGTHundred</th>
 						<th>Edit</th>
+						<th>view</th>
 						<th>Delete</th>
 					</tr>
 				</thead>
@@ -76,7 +83,7 @@
 						<div class="col-md-6">
 							<fieldset class="form-group">
 								<div class="col-md-4" style="padding-top: 5px;">
-									<label for="formGroupExampleInput">Card Number</label>
+									<label for="formGroupExampleInput"><input type="hidden" name="id" id="id">Card Number</label>
 								</div>
 								<div class="col-md-8">
 									<input type="text" class="form-control validate[required]"
@@ -168,7 +175,7 @@
 					<div class="col-md-6">
 						<fieldset class="form-group">
 							<div class="col-md-6" style="text-align: center;">
-								<div class="kv-avatar center-block" style="width: 98%;">
+								<div class="kv-avatar center-block" style="width: 98%;" id="mainImgDiv">
 									<input id="mainImg" name="mainImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -176,7 +183,7 @@
 									class="badge">1</span></a>
 							</div>
 							<div class="col-md-6">
-								<div class="kv-avatar center-block" style="width: 98%;">
+								<div class="kv-avatar center-block" style="width: 98%;" id="frontImgDiv">
 									<input id="frontImg" name="frontImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -186,7 +193,7 @@
 						</fieldset>
 						<fieldset class="form-group">
 							<div class="col-md-6" style="text-align: center;">
-								<div class="kv-avatar center-block" style="width: 98%;">
+								<div class="kv-avatar center-block" style="width: 98%;" id="middleImgDiv">
 									<input id="middleImg" name="middleImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -194,7 +201,7 @@
 									class="badge">1</span></a>
 							</div>
 							<div class="col-md-6">
-								<div class="kv-avatar center-block" style="width: 98%;">
+								<div class="kv-avatar center-block" style="width: 98%;" id="lastImgDiv">
 									<input id="lastImg" name="lastImg" type="file"
 										class="avatar file-loading">
 								</div>
@@ -202,7 +209,6 @@
 									class="badge">2</span></a>
 							</div>
 						</fieldset>
-
 					</div>
 				</div>
 
@@ -210,3 +216,127 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Modal Header</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<div class="col-md-3">
+								<div id="mainImgDiv" class="kv-avatar center-block">
+									<div class="file-input">
+										<div class="file-preview ">
+											<div class="file-drop-disabled">
+												<div class="file-preview-thumbnails">
+													<div class="file-default-preview">
+														<img  alt="Your Avatar"
+															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												<div class="file-preview-status text-center text-success"></div>
+												<div class="kv-fileinput-error"></div>
+											</div>
+										</div>
+										<a class="btn btn-primary" href="#">Main image <span
+											class="badge">1</span></a>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-3">
+								<div id="mainImgDiv" class="kv-avatar center-block">
+									<div class="file-input">
+										<div class="file-preview ">
+											<div class="file-drop-disabled">
+												<div class="file-preview-thumbnails">
+													<div class="file-default-preview">
+														<img  alt="Your Avatar"
+															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												<div class="file-preview-status text-center text-success"></div>
+												<div class="kv-fileinput-error"></div>
+											</div>
+										</div>
+										<a class="btn btn-primary" href="#">Main image <span
+											class="badge">1</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div id="mainImgDiv" class="kv-avatar center-block">
+									<div class="file-input">
+										<div class="file-preview ">
+											<div class="file-drop-disabled">
+												<div class="file-preview-thumbnails">
+													<div class="file-default-preview">
+														<img  alt="Your Avatar"
+															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												<div class="file-preview-status text-center text-success"></div>
+												<div class="kv-fileinput-error"></div>
+											</div>
+										</div>
+										<a class="btn btn-primary" href="#">Main image <span
+											class="badge">1</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div id="mainImgDiv" class="kv-avatar center-block">
+									<div class="file-input">
+										<div class="file-preview ">
+											<div class="file-drop-disabled">
+												<div class="file-preview-thumbnails">
+													<div class="file-default-preview">
+														<img  alt="Your Avatar"
+															src="/HimanshiPrinters/img/default_avatar_male.jpg" style="width:80%">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												<div class="file-preview-status text-center text-success"></div>
+												<div class="kv-fileinput-error"></div>
+											</div>
+										</div>
+										<a class="btn btn-primary" href="#">Main image <span
+											class="badge">1</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+				</div>
+
+				<p>Some text in the modal.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+

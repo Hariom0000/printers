@@ -1,13 +1,18 @@
 function createCard() {
+	var data = {};
+	$.each($("#validate input[type=text],#validate input[type=hidden]"),function(key,value){
+		data[value.name]=value.value;
+	});
+	console.log(JSON.stringify(data));
 	$
 			.ajax({
 				url : 'card',
 				type : 'post',
 				contentType : 'application/json',
-				data : JSON.stringify(serializeObject()),
+				data : JSON.stringify(data),
 				success : function(data) {
 					$("#listview tbody").empty();
-					$
+					$	
 							.each(
 									data,
 									function(key, value) {

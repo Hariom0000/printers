@@ -42,3 +42,4 @@ $(".avatar")
 function resetform(){
 	$('#validate')[0].reset();
 }
+var domainName=document.location.origin;
