@@ -5,11 +5,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ajay.printers.beans.WeddingCardBean;
 import com.ajay.printers.model.ActiveYear;
@@ -33,9 +39,15 @@ import com.ajay.printers.service.UserCastService;
 import com.ajay.printers.service.WeddingCardFrontImageService;
 import com.ajay.printers.service.WeddingCardService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 @RequestMapping(value = "/admin/management/**")
 public class ManagementController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
+	
 	@Autowired
 	private CardTypeService cardTypeService;
 
@@ -313,5 +325,36 @@ public class ManagementController {
 		
 	}
 	/*end weddingcardt management */
+	@RequestMapping(method = RequestMethod.GET , value = "pdf")
+    public ModelAndView generatePdfReport(ModelAndView modelAndView){
+		Map<String,Object> parameterMap = new HashMap<String,Object>();
+ 
+        logger.debug("--------------generate PDF report----------");
+ 
+        User  user=new User();
+        user.setId("Paglet");
+        List<User> userList=new ArrayList<ManagementController.User>();
+        userList.add(user);
+ 
+        JRDataSource JRdataSource = new JRBeanCollectionDataSource(userList);
+ 
+        parameterMap.put("datasource", JRdataSource);
+        parameterMap.put("img", "");
+ 
+        //pdfReport bean has ben declared in the jasper-views.xml file
+        modelAndView = new ModelAndView("pdfReport", parameterMap);
+ 
+        return modelAndView;
+ 
+    }//generatePdfReport
 	
+	class User{
+		private String id;
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+	}
 }
