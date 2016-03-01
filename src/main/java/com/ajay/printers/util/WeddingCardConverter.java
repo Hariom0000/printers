@@ -2,6 +2,7 @@ package com.ajay.printers.util;
 
 import com.ajay.printers.beans.WeddingCardBean;
 import com.ajay.printers.model.ActiveYear;
+import com.ajay.printers.model.CardSize;
 import com.ajay.printers.model.CardType;
 import com.ajay.printers.model.UserCast;
 import com.ajay.printers.model.WeddingCard;
@@ -30,6 +31,10 @@ public class WeddingCardConverter {
 		CardType cardType = new CardType();
 		cardType.setId(weddingCardBean.getCardTypeId());
 		weddingCard.setCardType(cardType);
+
+		CardSize cardSize = new CardSize();
+		cardSize.setId(weddingCardBean.getCardSizeId());
+		weddingCard.setCardSize(cardSize);
 
 		weddingCard.setFrontImg(weddingCardBean.getFrontImg());
 		weddingCard.setId(weddingCardBean.getId());
@@ -69,6 +74,8 @@ public class WeddingCardConverter {
 				.getWeddingCardFrontImage().getFrontImageName());
 		weddingCardBean.setWeddingCardFrontImageId(weddingCard
 				.getWeddingCardFrontImage().getId());
+		weddingCardBean.setCardSize(weddingCard.getCardSize().getSize());
+		weddingCardBean.setCardSizeId(weddingCard.getCardSize().getId());
 		return weddingCardBean;
 	}
 

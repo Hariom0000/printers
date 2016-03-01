@@ -25,8 +25,20 @@
 	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="cardsize"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/cardsize.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="weddingcard"  extends="baseLayout">
 	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/weddingcard.jsp"></put-attribute>
 	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="sampleweddingcard"  extends="baseLayout">
+	    <put-attribute name="body" value="/WEB-INF/Base/pages/management/sampleweddingcard.jsp"></put-attribute>
+	    <put-attribute name="menu" value="/WEB-INF/Base/pages/management/managementmenu.jsp"></put-attribute>
+	</definition>
+	
+	
 </tiles-definitions>

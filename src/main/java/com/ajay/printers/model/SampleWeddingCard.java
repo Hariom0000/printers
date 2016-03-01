@@ -12,17 +12,14 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "wedding_card")
-public class WeddingCard extends AbstractPO<Integer> {
+@Table(name = "sample_wedding_card")
+public class SampleWeddingCard extends AbstractPO<Integer> {
 
 	private String cardNumber;
 	private ActiveYear activeYear;
 	private CardType cardType;
 	private WeddingCardFrontImage weddingCardFrontImage;
 	private UserCast userCast;
-	private Integer minOrder;
-	private Integer priceLTHundred;
-	private Integer priceGTHundred;
 	private String mainImg;
 	private String frontImg;
 	private String middleImg;
@@ -61,10 +58,6 @@ public class WeddingCard extends AbstractPO<Integer> {
 		this.cardType = cardType;
 	}
 
-	@Column(name = "min_order")
-	public Integer getMinOrder() {
-		return minOrder;
-	}
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_cast", nullable = false)
 	public UserCast getUserCast() {
@@ -73,10 +66,6 @@ public class WeddingCard extends AbstractPO<Integer> {
 
 	public void setUserCast(UserCast userCast) {
 		this.userCast = userCast;
-	}
-
-	public void setMinOrder(Integer minOrder) {
-		this.minOrder = minOrder;
 	}
 
 	@Column(name = "main_image")
@@ -136,23 +125,6 @@ public class WeddingCard extends AbstractPO<Integer> {
 		this.weddingCardFrontImage = weddingCardFrontImage;
 	}
 
-	@Column(name = "price_lt_100")
-	public Integer getPriceLTHundred() {
-		return priceLTHundred;
-	}
-
-	public void setPriceLTHundred(Integer priceLTHundred) {
-		this.priceLTHundred = priceLTHundred;
-	}
-
-	@Column(name = "price_gt_100")
-	public Integer getPriceGTHundred() {
-		return priceGTHundred;
-	}
-
-	public void setPriceGTHundred(Integer priceGTHundred) {
-		this.priceGTHundred = priceGTHundred;
-	}
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "card_size", nullable = false)
 	public CardSize getCardSize() {

@@ -1,7 +1,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/img" var="img_url"></spring:url>
 <spring:url value="/js" var="js_url"></spring:url>
-<script src="${js_url}/card/weddingcard.js"></script>
+<script src="${js_url}/card/sampleweddingcard.js"></script>
 <style>
 .kv-avatar .file-preview-frame, .kv-avatar .file-preview-frame:hover {
 	margin: 0;
@@ -51,9 +51,6 @@
 						<th>Card Type</th>
 						<th>ImageOnCard</th>
 						<th>UserCast</th>
-						<th>MinOrder</th>
-						<th>priceLTHundred</th>
-						<th>priceGTHundred</th>
 						<th>Edit</th>
 						<th>view</th>
 						<th>Delete</th>
@@ -147,34 +144,6 @@
 									<select id="userCastId" name="userCastId"
 										class="form-control validate[required]">
 									</select>
-								</div>
-							</fieldset>
-
-							<fieldset class="form-group">
-								<div class="col-md-4" style="padding-top: 5px;">
-									<label for="formGroupExampleInput">Minimum Order</label>
-								</div>
-								<div class="col-md-8">
-									<input type="number" id="minOrder" name="minOrder"
-										class="form-control validate[required]">
-								</div>
-							</fieldset>
-							<fieldset class="form-group">
-								<div class="col-md-4" style="padding-top: 5px;">
-									<label for="formGroupExampleInput">Card Price > 100</label>
-								</div>
-								<div class="col-md-8">
-									<input type="number" id="priceLTHundred" name="priceLTHundred"
-										class="form-control validate[required]">
-								</div>
-							</fieldset>
-							<fieldset class="form-group">
-								<div class="col-md-4" style="padding-top: 5px;">
-									<label for="formGroupExampleInput">Card Price < 300 </label>
-								</div>
-								<div class="col-md-8">
-									<input type="number" id="priceGTHundred" name="priceGTHundred"
-										class="form-control validate[required]">
 								</div>
 							</fieldset>
 
@@ -310,7 +279,7 @@
 											</div>
 										</div>
 										<a class="btn btn-primary" id="amodelfrontImg" href="#">Front
-											image <span class="badge">2</span>
+											image <span class="badge">1</span>
 										</a>
 									</div>
 								</div>
@@ -332,7 +301,7 @@
 											</div>
 										</div>
 										<a class="btn btn-primary" id="amodelmiddleImg" href="#">Middle
-											image <span class="badge">3</span>
+											image <span class="badge">1</span>
 										</a>
 									</div>
 								</div>
@@ -354,7 +323,7 @@
 											</div>
 										</div>
 										<a class="btn btn-primary" id="amodellastImg" href="#">Last
-											image <span class="badge">4</span>
+											image <span class="badge">1</span>
 										</a>
 									</div>
 								</div>
@@ -362,9 +331,6 @@
 						</div>
 					</div>
 				</div>
-
-				<a class="btn btn-primary" id="createOwnCard" href="#">Create Own
-										 <span class="badge">1</span></a>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

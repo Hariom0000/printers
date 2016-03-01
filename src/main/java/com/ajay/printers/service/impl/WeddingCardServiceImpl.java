@@ -11,11 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ajay.printers.beans.WeddingCardBean;
 import com.ajay.printers.dao.ActiveYearDao;
+import com.ajay.printers.dao.CardSizeDao;
 import com.ajay.printers.dao.CardTypeDao;
 import com.ajay.printers.dao.UserCastDao;
 import com.ajay.printers.dao.WeddingCardDao;
 import com.ajay.printers.dao.WeddingCardFrontImageDao;
 import com.ajay.printers.model.ActiveYear;
+import com.ajay.printers.model.CardSize;
 import com.ajay.printers.model.CardType;
 import com.ajay.printers.model.UserCast;
 import com.ajay.printers.model.WeddingCard;
@@ -41,6 +43,8 @@ public class WeddingCardServiceImpl extends
 	private WeddingCardFrontImageDao weddingCardFrontImageDao;
 	@Autowired
 	private CardTypeDao cardTypeDao;
+	@Autowired
+	private CardSizeDao cardSizeDao;
 
 	@Override
 	public List<WeddingCardBean> getAllWeddingCard() {
@@ -61,7 +65,14 @@ public class WeddingCardServiceImpl extends
 		map.put("weddingcardfrontimage",
 				weddingCardFrontImageDao.findAll(WeddingCardFrontImage.class));
 		map.put("cardtype", cardTypeDao.findAll(CardType.class));
+		map.put("cardsize", cardSizeDao.findAll(CardSize.class));
 		return map;
+	}
+
+	@Override
+	public WeddingCardBean getById(int weddingCardId) {
+		return WeddingCardConverter.getInstance().entityToBean(
+				dao.get(weddingCardId));
 	}
 
 }

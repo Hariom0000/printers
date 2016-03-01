@@ -1,6 +1,6 @@
 package com.ajay.printers.beans;
 
-public class WeddingCardBean {
+public class SampleWeddingCardBean {
 	private int id;
 	private String cardNumber;
 	private String activeYear;
@@ -11,16 +11,14 @@ public class WeddingCardBean {
 	private int weddingCardFrontImageId;
 	private String userCast;
 	private int userCastId;
-	private int minOrder;
-	private int priceLTHundred;
-	private int priceGTHundred;
 	private String mainImg;
 	private String frontImg;
 	private String middleImg;
 	private String lastImg;
 	private String cardSize;
 	private int cardSizeId;
-
+	
+	
 	public String getCardNumber() {
 		return cardNumber;
 	}
@@ -101,29 +99,6 @@ public class WeddingCardBean {
 		this.userCastId = userCastId;
 	}
 
-	public int getMinOrder() {
-		return minOrder;
-	}
-
-	public void setMinOrder(int minOrder) {
-		this.minOrder = minOrder;
-	}
-
-	public int getPriceLTHundred() {
-		return priceLTHundred;
-	}
-
-	public void setPriceLTHundred(int priceLTHundred) {
-		this.priceLTHundred = priceLTHundred;
-	}
-
-	public int getPriceGTHundred() {
-		return priceGTHundred;
-	}
-
-	public void setPriceGTHundred(int priceGTHundred) {
-		this.priceGTHundred = priceGTHundred;
-	}
 
 	public String getMainImg() {
 		return mainImg;
@@ -172,5 +147,6 @@ public class WeddingCardBean {
 	public void setCardSizeId(int cardSizeId) {
 		this.cardSizeId = cardSizeId;
 	}
+	
 
 }

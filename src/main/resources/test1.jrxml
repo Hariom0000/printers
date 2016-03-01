@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-02-29T23:19:58 -->
+<!-- 2016-03-01T23:11:22 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b4061a6-07fc-42ab-a9b5-060d837d1151">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="backgroundimg" class="java.lang.String"/>
@@ -18,15 +18,6 @@
 		<band height="321" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<image>
-				<reportElement x="0" y="0" width="800" height="298" uuid="a13a2eb1-15e5-4f19-a91a-54425ddc640f">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<imageExpression><![CDATA[$P{backgroundimg}]]></imageExpression>
-			</image>
 		</band>
 	</background>
 	<title>
@@ -72,16 +63,6 @@
 					<pen lineWidth="2.0" lineColor="#851515"/>
 				</graphicElement>
 			</line>
-			<textField>
-				<reportElement x="500" y="76" width="270" height="28" forecolor="#851C1B" uuid="a1e5595a-1dc2-43f3-bfde-62e586204558">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Vivaldi" size="20" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{weddingDate}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="480" y="180" width="90" height="40" forecolor="#851715" uuid="f9af8de5-fa9c-4d12-8678-21a37f0b0072"/>
 				<textElement>
@@ -103,26 +84,6 @@
 					<pen lineWidth="1.5"/>
 				</graphicElement>
 			</line>
-			<image>
-				<reportElement x="140" y="60" width="140" height="41" uuid="59ad8d82-cecc-4436-988e-092fc1f62d2b"/>
-				<imageExpression><![CDATA[$P{backgroundimg}]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="120" y="20" width="121" height="31" forecolor="#851C1B" uuid="f175f3fb-7e6f-49b6-bd01-bb26d71de949"/>
-				<textElement>
-					<font fontName="Vijaya" size="26" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{boyName}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="160" y="110" width="121" height="31" forecolor="#851C1B" uuid="c017d198-b54a-4530-8db3-0283b2d625b3">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Vijaya" size="26" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{girlName}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="11" y="120" width="59" height="21" forecolor="#851C1B" uuid="4a0aa22c-5c36-4428-8a80-45458928540b">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -132,24 +93,6 @@
 				</textElement>
 				<text><![CDATA[from :]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="11" y="150" width="252" height="20" forecolor="#851C1B" uuid="8279db53-9e06-472f-80ee-65ec98109b91">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Vijaya" size="18" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fromName}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="221" width="193" height="20" forecolor="#851C1B" uuid="4cda739f-8c64-4b53-ad30-5825122e79cb">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Vijaya" size="18"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{frontMobileNo}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="10" y="220" width="51" height="20" forecolor="#851C1B" uuid="afdef317-416e-4dfd-ad0d-36e8d525e87c">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -159,13 +102,6 @@
 				</textElement>
 				<text><![CDATA[MOB :]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="11" y="180" width="252" height="30" forecolor="#851C1B" uuid="2e74852d-d74f-4b3b-b644-b77582fea507"/>
-				<textElement>
-					<font fontName="Vijaya" size="18"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{frontAddress}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<columnFooter>

@@ -15,6 +15,10 @@
           class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
           p:url="classpath:test.jrxml"
           p:reportDataKey="datasource" />
+
+	<bean id="pdfnotice"
+		class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
+		p:url="classpath:test1.jrxml" />
  
  
    <!--  <bean id="xlsReport"

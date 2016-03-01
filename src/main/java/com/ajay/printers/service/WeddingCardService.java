@@ -11,5 +11,7 @@ public interface WeddingCardService extends CRUDService<Integer, WeddingCard> {
 	public List<WeddingCardBean> getAllWeddingCard();
 	
 	public Map<String, Object> getWeddingCardBaseData();
+	
+	public WeddingCardBean getById(int weddingCardId);
 
 }
